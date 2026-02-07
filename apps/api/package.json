@@ -1,0 +1,37 @@
+{
+	"name": "@my-monorepo/api",
+	"version": "1.0.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		"./routers": {
+			"types": "./dist/trpc/routers/index.d.ts",
+			"default": "./dist/trpc/routers/index.js"
+		}
+	},
+	"scripts": {
+		"dev": "bun run --hot src/index.ts",
+		"build": "bun build src/index.ts --outdir=dist --target=bun && bun build src/trpc/routers/index.ts --outdir=dist/trpc/routers --target=node && tsc --emitDeclarationOnly --project tsconfig.json --outDir dist && bunx tsc-alias -p tsconfig.json --outDir dist",
+		"start": "bun run dist/index.js",
+		"check-types": "tsc --noEmit",
+		"lint": "oxlint .",
+		"lint:fix": "oxlint --fix .",
+		"format": "oxfmt",
+		"format:check": "oxfmt --check",
+		"test": "vitest run",
+		"test:coverage": "vitest run --coverage"
+	},
+	"dependencies": {
+		"@hono/trpc-server": "latest",
+		"@my-monorepo/ai": "*",
+		"@my-monorepo/logger": "*",
+		"@my-monorepo/utils": "*",
+		"@trpc/server": "latest",
+		"hono": "latest"
+	},
+	"devDependencies": {
+		"@my-monorepo/tsconfig": "*",
+		"@types/node": "latest",
+		"tsc-alias": "latest"
+	}
+}

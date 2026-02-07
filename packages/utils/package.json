@@ -1,0 +1,37 @@
+{
+	"name": "@my-monorepo/utils",
+	"version": "1.0.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts",
+		"./crypto": "./src/crypto.ts",
+		"./format": "./src/format.ts",
+		"./ids": "./src/ids.ts",
+		"./validators": "./src/validators.ts"
+	},
+	"scripts": {
+		"lint": "oxlint .",
+		"lint:fix": "oxlint --fix .",
+		"format": "oxfmt",
+		"format:check": "oxfmt --check",
+		"check-types": "tsc --noEmit",
+		"test": "vitest run",
+		"test:coverage": "vitest run --coverage"
+	},
+	"dependencies": {
+		"date-fns": "latest",
+		"jose": "latest",
+		"lodash": "latest",
+		"nuqs": "latest",
+		"superjson": "latest",
+		"validator": "latest",
+		"zod": "latest"
+	},
+	"devDependencies": {
+		"@my-monorepo/tsconfig": "*",
+		"@types/lodash": "latest",
+		"@types/node": "latest",
+		"@types/validator": "latest"
+	}
+}

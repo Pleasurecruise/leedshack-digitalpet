@@ -1,0 +1,67 @@
+{
+	"$schema": "https://turborepo.org/schema.json",
+	"globalDependencies": ["**/.env"],
+	"ui": "stream",
+	"tasks": {
+		"topo": {
+			"dependsOn": ["^topo"]
+		},
+		"build": {
+			"inputs": ["$TURBO_DEFAULT$", ".env"],
+			"dependsOn": ["^build"],
+			"outputs": [
+				".next/**",
+				"!.next/cache/**",
+				"next-env.d.ts",
+				".expo/**",
+				"dist/**",
+				"build/**",
+				"lib/**"
+			]
+		},
+		"start": {
+			"cache": false
+		},
+		"test": {
+			"dependsOn": ["^build"],
+			"cache": false
+		},
+		"dev": {
+			"inputs": ["$TURBO_DEFAULT$", ".env"],
+			"persistent": true,
+			"cache": false
+		},
+		"android": {
+			"persistent": true,
+			"cache": false
+		},
+		"ios": {
+			"persistent": true,
+			"cache": false
+		},
+		"jobs": {
+			"persistent": true,
+			"cache": false
+		},
+		"format": {},
+		"lint": {
+			"dependsOn": ["^topo"]
+		},
+		"lint:fix": {
+			"dependsOn": ["^topo"],
+			"cache": false
+		},
+		"test:coverage": {
+			"dependsOn": ["^build"],
+			"cache": false
+		},
+		"typecheck": {
+			"dependsOn": ["^build"],
+			"outputs": []
+		},
+		"check-types": {
+			"dependsOn": ["^build"],
+			"outputs": []
+		}
+	}
+}
