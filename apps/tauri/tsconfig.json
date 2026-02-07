@@ -3,8 +3,9 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./src/*"],
-			"@my-monorepo/ui/*": ["../../packages/ui/src/*"]
+			"@/*": ["./src/*", "../api/src/*"],
+			"@my-monorepo/ui/*": ["../../packages/ui/src/*"],
+			"@my-monorepo/api/routers": ["../api/src/trpc/routers/index.ts"]
 		}
 	},
 	"include": ["src", "vite.config.ts"],
