@@ -1,5 +1,5 @@
 {
-	"name": "my-monorepo",
+	"name": "leedshack-digitalpet",
 	"private": true,
 	"workspaces": [
 		"packages/*",
@@ -7,11 +7,7 @@
 	],
 	"scripts": {
 		"dev:api": "turbo dev --filter=@my-monorepo/api",
-		"dev:web": "turbo dev --filter=@my-monorepo/web",
 		"dev:tauri": "turbo dev --filter=@my-monorepo/tauri",
-		"dev:expo": "turbo dev --filter=@my-monorepo/mobile",
-		"build:ui": "turbo build --filter=@my-monorepo/ui",
-		"build:web": "turbo build --filter=@my-monorepo/web",
 		"build:tauri": "turbo build --filter=@my-monorepo/tauri",
 		"lint": "turbo lint && manypkg check",
 		"lint:fix": "turbo lint:fix",
@@ -25,21 +21,16 @@
 	},
 	"devDependencies": {
 		"@manypkg/cli": "latest",
-		"@tailwindcss/vite": "latest",
-		"@types/react": "latest",
-		"@types/react-dom": "latest",
-		"@vitejs/plugin-react": "latest",
+		"@vitejs/plugin-vue": "latest",
 		"@vitest/coverage-v8": "latest",
 		"oxfmt": "latest",
 		"oxlint": "latest",
-		"react": "latest",
-		"react-dom": "latest",
 		"rolldown": "latest",
 		"turbo": "latest",
 		"typescript": "latest",
 		"vite": "latest",
-		"vite-tsconfig-paths": "latest",
-		"vitest": "latest"
+		"vitest": "latest",
+		"vue": "latest"
 	},
 	"packageManager": "bun@1.3.8"
 }

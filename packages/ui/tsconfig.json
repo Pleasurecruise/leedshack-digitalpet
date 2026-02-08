@@ -1,11 +1,14 @@
 {
-	"extends": "@my-monorepo/tsconfig/react-library.json",
+	"extends": "@my-monorepo/tsconfig/base.json",
 	"compilerOptions": {
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"jsx": "preserve",
 		"baseUrl": ".",
 		"paths": {
-			"@my-monorepo/ui/*": ["./src/*"]
+			"@/*": ["./src/*"]
 		}
 	},
-	"include": ["."],
+	"include": ["src/**/*"],
 	"exclude": ["node_modules", "dist"]
 }

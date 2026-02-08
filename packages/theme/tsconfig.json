@@ -1,5 +1,5 @@
 {
-	"extends": "@my-monorepo/tsconfig/react-library.json",
+	"extends": "@my-monorepo/tsconfig/base.json",
 	"compilerOptions": {
 		"module": "ESNext",
 		"moduleResolution": "Bundler",

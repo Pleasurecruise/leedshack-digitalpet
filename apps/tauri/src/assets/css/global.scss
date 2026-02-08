@@ -1,0 +1,51 @@
+html {
+	--uno: select-none overscroll-none antialiased;
+
+	color-scheme: light;
+
+	&,
+	body {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	&::-webkit-scrollbar,
+	body::-webkit-scrollbar {
+		width: 0;
+		height: 0;
+		display: none;
+	}
+
+	* {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	*::-webkit-scrollbar {
+		width: 0;
+		height: 0;
+		display: none;
+	}
+
+	&[data-window-label="main"],
+	&[data-window-label="main"] body,
+	&[data-window-label="main"] #app {
+		background: transparent !important;
+	}
+
+	body {
+		--uno: transition-opacity-300;
+	}
+
+	&.dark {
+		color-scheme: dark;
+	}
+
+	img {
+		-webkit-user-drag: none;
+	}
+
+	button {
+		outline: none !important;
+	}
+}

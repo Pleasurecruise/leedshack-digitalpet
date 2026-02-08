@@ -1,24 +1,185 @@
 export default {
-	common: {
-		welcome: "欢迎",
-		loading: "加载中...",
-		error: "出错了",
-		confirm: "确认",
-		cancel: "取消",
-		save: "保存",
-		delete: "删除",
-		edit: "编辑",
-		search: "搜索",
-		noData: "暂无数据",
+	pages: {
+		main: {
+			hints: {
+				redrawing: "重绘中...",
+			},
+		},
+		preference: {
+			title: "偏好设置",
+			cat: {
+				title: "桌宠设置",
+				labels: {
+					modelSettings: "模型设置",
+					mirrorMode: "镜像模式",
+					singleMode: "单键模式",
+					mouseMirror: "鼠标镜像",
+					windowSettings: "窗口设置",
+					passThrough: "窗口穿透",
+					alwaysOnTop: "窗口置顶",
+					windowSize: "窗口尺寸",
+					windowRadius: "窗口圆角",
+					opacity: "不透明度",
+					autoReleaseDelay: "按键自动释放延迟",
+					hideOnHover: "鼠标移入隐藏",
+					position: "窗口位置",
+				},
+				hints: {
+					mirrorMode: "启用后，模型将水平镜像翻转。",
+					singleMode: "启用后，每只手只显示最后按下的一个按键。",
+					mouseMirror: "启用后，鼠标将镜像跟随手部移动。",
+					passThrough: "启用后，窗口不影响对其他应用程序的操作。",
+					alwaysOnTop: "启用后，窗口始终显示在其他应用程序上方。",
+					windowSize: "将鼠标移至窗口边缘，或按住 Shift 并右键拖动，也可以调整窗口大小。",
+					autoReleaseDelay:
+						"由于 Windows 下部分系统级按键无法捕获释放事件，超时后将自动视为已释放。",
+					hideOnHover: "启用后，鼠标悬停在窗口上时，窗口会隐藏。",
+					position: "应用启动后，或当此参数、窗口尺寸、模型、电脑分辨率发生变化时生效。",
+				},
+				options: {
+					topLeft: "左上角",
+					topRight: "右上角",
+					bottomLeft: "左下角",
+					bottomRight: "右下角",
+				},
+			},
+			general: {
+				title: "通用设置",
+				labels: {
+					appSettings: "应用设置",
+					launchOnStartup: "开机自启动",
+					showTaskbarIcon: "显示任务栏图标",
+					appearanceSettings: "外观设置",
+					themeMode: "主题模式",
+					language: "语言",
+					updateSettings: "更新设置",
+					autoCheckUpdate: "自动检查更新",
+					permissionsSettings: "权限设置",
+					inputMonitoringPermission: "输入监控权限",
+				},
+				options: {
+					auto: "跟随系统",
+					lightMode: "亮色模式",
+					darkMode: "暗色模式",
+				},
+				hints: {
+					showTaskbarIcon: "启用后，即可通过 OBS Studio 捕获窗口。",
+					inputMonitoringPermission:
+						"开启输入监控权限，以便接收系统的键盘和鼠标事件来响应你的操作。",
+					inputMonitoringPermissionGuide:
+						"如果权限已开启，请先选中并点击“-”按钮将其删除，然后重新手动添加，最后重启应用以确保权限生效。",
+				},
+				status: {
+					authorized: "已授权",
+					authorize: "去授权",
+				},
+				buttons: {
+					openNow: "前往开启",
+					openLater: "稍后开启",
+				},
+			},
+			model: {
+				title: "模型管理",
+				labels: {
+					deleteModel: "删除模型",
+				},
+				hints: {
+					deleteSuccess: "删除成功",
+					deleteModel: "你确定要删除此模型吗？",
+					importSuccess: "导入成功",
+					clickOrDragToImport: "点击或拖动至此区域导入",
+				},
+				tooltips: {
+					createModel: "制作模型",
+					convertModel: "转换模型",
+					moreModels: "更多模型",
+				},
+			},
+			shortcut: {
+				title: "快捷键",
+				labels: {
+					toggleCat: "打开桌宠",
+					togglePreferences: "打开偏好设置",
+					mirrorMode: "镜像模式",
+					passThrough: "窗口穿透",
+					alwaysOnTop: "窗口置顶",
+				},
+				hints: {
+					toggleCat: "切换桌宠窗口的显示与隐藏。",
+					togglePreferences: "切换偏好设置窗口的显示与隐藏。",
+					mirrorMode: "切换桌宠的镜像模式。",
+					passThrough: "切换桌宠窗口是否可穿透。",
+					alwaysOnTop: "切换桌宠窗口是否置顶。",
+				},
+			},
+			about: {
+				title: "关于",
+				labels: {
+					aboutApp: "关于软件",
+					appLog: "软件日志",
+					appInfo: "软件信息",
+					openSource: "开源地址",
+				},
+				hints: {
+					appInfo: "复制软件信息并提供给 Bug Issue。",
+					copySuccess: "复制成功",
+				},
+				buttons: {
+					checkUpdate: "检查更新",
+					copy: "复制",
+					feedbackIssues: "反馈问题",
+					viewLog: "查看日志",
+				},
+			},
+		},
 	},
-	nav: {
-		home: "首页",
-		settings: "设置",
-		profile: "个人中心",
-		about: "关于",
+	components: {
+		proShortcut: {
+			hints: {
+				pressRecordShortcut: "按下录制快捷键",
+				clickRecordShortcut: "点击录制快捷键",
+			},
+		},
+		updateApp: {
+			title: "发现新版本🥳",
+			labels: {
+				updateVersion: "更新版本：",
+				updateTime: "更新时间：",
+				changelog: "更新日志：",
+			},
+			hints: {
+				checkingUpdates: "正在检查更新...",
+				alreadyLatest: "当前已是最新版本🎉",
+			},
+			buttons: {
+				updateNow: "立即更新",
+				updateLater: "稍后更新",
+			},
+		},
 	},
-	settings: {
-		language: "语言",
-		theme: "主题",
+	composables: {
+		useSharedMenu: {
+			labels: {
+				preference: "偏好设置...",
+				hideCat: "隐藏桌宠",
+				showCat: "显示桌宠",
+				passThrough: "窗口穿透",
+				windowSize: "窗口尺寸",
+				opacity: "不透明度",
+			},
+		},
+		useTray: {
+			checkUpdate: "检查更新",
+			openSource: "开源地址",
+			restartApp: "重启应用",
+			quitApp: "退出应用",
+		},
+	},
+	utils: {
+		live2d: {
+			hints: {
+				notFound: "未找到模型主配置文件，请确认模型文件是否完整。",
+			},
+		},
 	},
 } as const;

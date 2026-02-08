@@ -1,13 +1,29 @@
 {
-	"extends": "@my-monorepo/tsconfig/react-app.json",
 	"compilerOptions": {
+		"target": "ES2020",
+		"jsx": "preserve",
+		"lib": ["ES2020", "DOM", "DOM.Iterable"],
+		"useDefineForClassFields": true,
+
 		"baseUrl": ".",
+		"module": "ESNext",
+		/* Bundler mode */
+		"moduleResolution": "bundler",
 		"paths": {
-			"@/*": ["./src/*", "../api/src/*"],
-			"@my-monorepo/ui/*": ["../../packages/ui/src/*"],
-			"@my-monorepo/api/routers": ["../api/src/trpc/routers/index.ts"]
-		}
+			"@/*": ["src/*"]
+		},
+		"resolveJsonModule": true,
+		"allowImportingTsExtensions": true,
+
+		/* Linting */
+		"strict": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noEmit": true,
+		"isolatedModules": true,
+		"skipLibCheck": true
 	},
-	"include": ["src", "vite.config.ts"],
-	"exclude": ["node_modules", "src-tauri"]
+	"references": [{ "path": "./tsconfig.node.json" }],
+	"include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }

@@ -4,9 +4,24 @@
 	"private": true,
 	"type": "module",
 	"exports": {
-		"./components/*": "./src/components/*.tsx",
-		"./lib/*": "./src/lib/*.ts",
-		"./styles/*": "./src/styles/*.css"
+		".": "./src/index.ts",
+		"./alert-dialog": "./src/components/ui/alert-dialog/index.ts",
+		"./button": "./src/components/ui/button/index.ts",
+		"./card": "./src/components/ui/card/index.ts",
+		"./dialog": "./src/components/ui/dialog/index.ts",
+		"./input": "./src/components/ui/input/index.ts",
+		"./label": "./src/components/ui/label/index.ts",
+		"./badge": "./src/components/ui/badge/index.ts",
+		"./number-field": "./src/components/ui/number-field/index.ts",
+		"./popover": "./src/components/ui/popover/index.ts",
+		"./select": "./src/components/ui/select/index.ts",
+		"./separator": "./src/components/ui/separator/index.ts",
+		"./slider": "./src/components/ui/slider/index.ts",
+		"./sonner": "./src/components/ui/sonner/index.ts",
+		"./switch": "./src/components/ui/switch/index.ts",
+		"./tooltip": "./src/components/ui/tooltip/index.ts",
+		"./lib/utils": "./src/lib/utils.ts",
+		"./styles/*.css": "./src/styles/*.css"
 	},
 	"scripts": {
 		"lint": "oxlint .",
@@ -18,12 +33,16 @@
 		"test:coverage": "vitest run --coverage"
 	},
 	"dependencies": {
-		"@radix-ui/react-slot": "latest",
-		"class-variance-authority": "latest",
-		"clsx": "latest",
-		"lucide-react": "latest",
-		"tailwind-merge": "latest",
-		"tailwindcss": "latest"
+		"@vueuse/core": "^14.2.0",
+		"class-variance-authority": "^0.7.1",
+		"clsx": "^2.1.1",
+		"lucide-vue-next": "^0.474.0",
+		"reka-ui": "^2.8.0",
+		"tailwind-merge": "^3.0.0",
+		"vue-sonner": "^2.0.9"
+	},
+	"peerDependencies": {
+		"vue": "^3.5.0"
 	},
 	"devDependencies": {
 		"@my-monorepo/tsconfig": "*"

@@ -1,9 +1,9 @@
 [package]
-name = "tauri"
-version = "0.1.0"
+name = "leedshack-digitialpet"
+version = "0.9.0"
 description = "A Tauri App"
-authors = ["you"]
-edition = "2021"
+authors = ["Pleasurecruise"]
+edition = "2024"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -11,15 +11,36 @@ edition = "2021"
 # The `_lib` suffix may seem redundant but it is necessary
 # to make the lib name unique and wouldn't conflict with the bin name.
 # This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
-name = "tauri_lib"
+name = "leedshack_digitialpet_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]
 tauri-build = { version = "2", features = [] }
 
 [dependencies]
-tauri = { version = "2", features = [] }
+tauri = { workspace = true, features = ["tray-icon", "protocol-asset", "image-png"] }
+serde = { workspace = true, features = ["derive"] }
+serde_json.workspace = true
+tauri-plugin-custom-window.workspace = true
+tauri-plugin-os = "2"
+tauri-plugin-process = "2"
 tauri-plugin-opener = "2"
-serde = { version = "1", features = ["derive"] }
-serde_json = "1"
+tauri-plugin-pinia = "3"
+tauri-plugin-log = "2"
+tauri-plugin-updater = "2"
+tauri-plugin-prevent-default = "1"
+tauri-plugin-single-instance = "2"
+tauri-plugin-autostart = "2"
+tauri-plugin-dialog = "2"
+tauri-plugin-fs = "2"
+fs_extra = "1"
+tauri-plugin-clipboard-manager = "2"
+tauri-plugin-global-shortcut = "2"
+tauri-plugin-locale = "2"
+rdev = { git = "https://github.com/kunkunsh/rdev" }
+gilrs = { git = "https://github.com/ayangweb/gilrs", default-features = false, features = [
+	"xinput",
+] }
 
+[features]
+cargo-clippy = []

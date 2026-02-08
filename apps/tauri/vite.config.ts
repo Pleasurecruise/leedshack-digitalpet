@@ -1,17 +1,23 @@
-import tailwindcss from "@tailwindcss/vite";
-import react from "@vitejs/plugin-react";
+import { resolve } from "node:path";
+import { env } from "node:process";
+
+import vue from "@vitejs/plugin-vue";
+import UnoCSS from "unocss/vite";
 import { defineConfig } from "vite";
-import tsconfigPaths from "vite-tsconfig-paths";
 
-const host = process.env.TAURI_DEV_HOST;
+const host = env.TAURI_DEV_HOST;
 
-// https://vite.dev/config/
-export default defineConfig({
-	plugins: [react(), tsconfigPaths(), tailwindcss()],
-
+// https://vitejs.dev/config/
+export default defineConfig(async () => ({
+	plugins: [vue(), UnoCSS()],
+	resolve: {
+		alias: {
+			"@": resolve(__dirname, "src"),
+		},
+	},
 	// Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
 	//
-	// 1. prevent Vite from obscuring rust errors
+	// 1. prevent vite from obscuring rust errors
 	clearScreen: false,
 	// 2. tauri expects a fixed port, fail if that port is not available
 	server: {
@@ -26,8 +32,8 @@ export default defineConfig({
 				}
 			: undefined,
 		watch: {
-			// 3. tell Vite to ignore watching `src-tauri`
+			// 3. tell vite to ignore watching `src-tauri`
 			ignored: ["**/src-tauri/**"],
 		},
 	},
-});
+}));

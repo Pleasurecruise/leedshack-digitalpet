@@ -6,7 +6,6 @@
 	"exports": {
 		".": "./src/index.ts",
 		"./core": "./src/core.ts",
-		"./react": "./src/react.ts",
 		"./locales/*": "./src/locales/*.ts"
 	},
 	"scripts": {
@@ -19,7 +18,7 @@
 		"test:coverage": "vitest run --coverage"
 	},
 	"dependencies": {
-		"i18next": "^23.16.8"
+		"i18n-js": "^4.0.0"
 	},
 	"devDependencies": {
 		"@my-monorepo/tsconfig": "*"
