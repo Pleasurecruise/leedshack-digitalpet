@@ -15,7 +15,7 @@ const { Application, Ticker } = PIXI;
 Live2DModel.registerTicker(Ticker);
 
 class Live2d {
-	private app: Application | null = null;
+	private app: InstanceType<typeof PIXI.Application> | null = null;
 	public model: Live2DModel | null = null;
 
 	constructor() {}

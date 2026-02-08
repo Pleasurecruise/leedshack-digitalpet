@@ -8,39 +8,17 @@ export default {
 		preference: {
 			title: "偏好设置",
 			cat: {
-				title: "桌宠设置",
 				labels: {
-					modelSettings: "模型设置",
-					mirrorMode: "镜像模式",
-					singleMode: "单键模式",
-					mouseMirror: "鼠标镜像",
 					windowSettings: "窗口设置",
 					passThrough: "窗口穿透",
 					alwaysOnTop: "窗口置顶",
 					windowSize: "窗口尺寸",
-					windowRadius: "窗口圆角",
 					opacity: "不透明度",
-					autoReleaseDelay: "按键自动释放延迟",
-					hideOnHover: "鼠标移入隐藏",
-					position: "窗口位置",
 				},
 				hints: {
-					mirrorMode: "启用后，模型将水平镜像翻转。",
-					singleMode: "启用后，每只手只显示最后按下的一个按键。",
-					mouseMirror: "启用后，鼠标将镜像跟随手部移动。",
 					passThrough: "启用后，窗口不影响对其他应用程序的操作。",
 					alwaysOnTop: "启用后，窗口始终显示在其他应用程序上方。",
 					windowSize: "将鼠标移至窗口边缘，或按住 Shift 并右键拖动，也可以调整窗口大小。",
-					autoReleaseDelay:
-						"由于 Windows 下部分系统级按键无法捕获释放事件，超时后将自动视为已释放。",
-					hideOnHover: "启用后，鼠标悬停在窗口上时，窗口会隐藏。",
-					position: "应用启动后，或当此参数、窗口尺寸、模型、电脑分辨率发生变化时生效。",
-				},
-				options: {
-					topLeft: "左上角",
-					topRight: "右上角",
-					bottomLeft: "左下角",
-					bottomRight: "右下角",
 				},
 			},
 			general: {
@@ -67,7 +45,7 @@ export default {
 					inputMonitoringPermission:
 						"开启输入监控权限，以便接收系统的键盘和鼠标事件来响应你的操作。",
 					inputMonitoringPermissionGuide:
-						"如果权限已开启，请先选中并点击“-”按钮将其删除，然后重新手动添加，最后重启应用以确保权限生效。",
+						'如果权限已开启，请先选中并点击"-"按钮将其删除，然后重新手动添加，最后重启应用以确保权限生效。',
 				},
 				status: {
 					authorized: "已授权",
@@ -78,68 +56,9 @@ export default {
 					openLater: "稍后开启",
 				},
 			},
-			model: {
-				title: "模型管理",
-				labels: {
-					deleteModel: "删除模型",
-				},
-				hints: {
-					deleteSuccess: "删除成功",
-					deleteModel: "你确定要删除此模型吗？",
-					importSuccess: "导入成功",
-					clickOrDragToImport: "点击或拖动至此区域导入",
-				},
-				tooltips: {
-					createModel: "制作模型",
-					convertModel: "转换模型",
-					moreModels: "更多模型",
-				},
-			},
-			shortcut: {
-				title: "快捷键",
-				labels: {
-					toggleCat: "打开桌宠",
-					togglePreferences: "打开偏好设置",
-					mirrorMode: "镜像模式",
-					passThrough: "窗口穿透",
-					alwaysOnTop: "窗口置顶",
-				},
-				hints: {
-					toggleCat: "切换桌宠窗口的显示与隐藏。",
-					togglePreferences: "切换偏好设置窗口的显示与隐藏。",
-					mirrorMode: "切换桌宠的镜像模式。",
-					passThrough: "切换桌宠窗口是否可穿透。",
-					alwaysOnTop: "切换桌宠窗口是否置顶。",
-				},
-			},
-			about: {
-				title: "关于",
-				labels: {
-					aboutApp: "关于软件",
-					appLog: "软件日志",
-					appInfo: "软件信息",
-					openSource: "开源地址",
-				},
-				hints: {
-					appInfo: "复制软件信息并提供给 Bug Issue。",
-					copySuccess: "复制成功",
-				},
-				buttons: {
-					checkUpdate: "检查更新",
-					copy: "复制",
-					feedbackIssues: "反馈问题",
-					viewLog: "查看日志",
-				},
-			},
 		},
 	},
 	components: {
-		proShortcut: {
-			hints: {
-				pressRecordShortcut: "按下录制快捷键",
-				clickRecordShortcut: "点击录制快捷键",
-			},
-		},
 		updateApp: {
 			title: "发现新版本🥳",
 			labels: {

@@ -8,40 +8,17 @@ export default {
 		preference: {
 			title: "Preferences",
 			cat: {
-				title: "Digital Pet",
 				labels: {
-					modelSettings: "Model Settings",
-					mirrorMode: "Mirror Mode",
-					singleMode: "Single Key Mode",
-					mouseMirror: "Mouse Mirror",
 					windowSettings: "Window Settings",
 					passThrough: "Pass Through",
 					alwaysOnTop: "Always on Top",
 					windowSize: "Window Size",
-					windowRadius: "Window Radius",
 					opacity: "Opacity",
-					autoReleaseDelay: "Auto Release Delay",
-					hideOnHover: "Hide on Hover",
-					position: "Window Position",
 				},
 				hints: {
-					mirrorMode: "When enabled, the model will be mirrored horizontally.",
-					singleMode: "When enabled, only the last pressed key is displayed for each hand.",
-					mouseMirror: "When enabled, the mouse will mirror the hand movement.",
 					passThrough: "When enabled, clicks pass through the window without affecting it.",
 					alwaysOnTop: "When enabled, the window stays above all other windows.",
 					windowSize: "Move mouse to window edge, or hold Shift and right-drag to resize.",
-					autoReleaseDelay:
-						"On Windows, some system keys cannot capture release events and will auto-release after timeout.",
-					hideOnHover: "When enabled, the window hides when mouse hovers over it.",
-					position:
-						"Takes effect after the app starts, or when this parameter, window size, model, or screen resolution changes.",
-				},
-				options: {
-					topLeft: "Top Left",
-					topRight: "Top Right",
-					bottomLeft: "Bottom Left",
-					bottomRight: "Bottom Right",
 				},
 			},
 			general: {
@@ -79,68 +56,9 @@ export default {
 					openLater: "Open Later",
 				},
 			},
-			model: {
-				title: "Model",
-				labels: {
-					deleteModel: "Delete Model",
-				},
-				hints: {
-					deleteSuccess: "Deleted Successfully",
-					deleteModel: "Are you sure you want to delete this model?",
-					importSuccess: "Imported Successfully",
-					clickOrDragToImport: "Click or drag here to import",
-				},
-				tooltips: {
-					createModel: "Create Model",
-					convertModel: "Convert Model",
-					moreModels: "More Models",
-				},
-			},
-			shortcut: {
-				title: "Shortcuts",
-				labels: {
-					toggleCat: "Toggle Digital Pet",
-					togglePreferences: "Toggle Preferences",
-					mirrorMode: "Mirror Mode",
-					passThrough: "Pass Through",
-					alwaysOnTop: "Always on Top",
-				},
-				hints: {
-					toggleCat: "Toggle the visibility of the digital pet window.",
-					togglePreferences: "Toggle the visibility of the preferences window.",
-					mirrorMode: "Toggle the digital pet's mirror mode.",
-					passThrough: "Toggle whether the digital pet window is pass-through.",
-					alwaysOnTop: "Toggle whether the digital pet window stays on top.",
-				},
-			},
-			about: {
-				title: "About",
-				labels: {
-					aboutApp: "About App",
-					appLog: "App Logs",
-					appInfo: "App Info",
-					openSource: "Open Source",
-				},
-				hints: {
-					appInfo: "Copy app information and provide it to bug issue.",
-					copySuccess: "Copied Successfully",
-				},
-				buttons: {
-					checkUpdate: "Check for Updates",
-					copy: "Copy",
-					feedbackIssues: "Feedback Issues",
-					viewLog: "View Logs",
-				},
-			},
 		},
 	},
 	components: {
-		proShortcut: {
-			hints: {
-				pressRecordShortcut: "Press to record shortcut",
-				clickRecordShortcut: "Click to record shortcut",
-			},
-		},
 		updateApp: {
 			title: "New Version Found 🥳",
 			labels: {

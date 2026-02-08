@@ -124,7 +124,12 @@ watch(
 watch(
 	() => catStore.window.visible,
 	async (value) => {
-		value ? showWindow() : hideWindow();
+		if (value) {
+			await showWindow();
+			return;
+		}
+
+		await hideWindow();
 	},
 );
 

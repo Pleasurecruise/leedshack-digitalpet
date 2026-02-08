@@ -2,7 +2,13 @@
 import type { NumberFieldRootEmits, NumberFieldRootProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 import { reactiveOmit } from "@vueuse/core";
-import { NumberFieldDecrement, NumberFieldIncrement, NumberFieldInput, NumberFieldRoot, useForwardPropsEmits } from "reka-ui";
+import {
+	NumberFieldDecrement,
+	NumberFieldIncrement,
+	NumberFieldInput,
+	NumberFieldRoot,
+	useForwardPropsEmits,
+} from "reka-ui";
 import { Minus, Plus } from "lucide-vue-next";
 import { cn } from "@my-monorepo/ui/lib/utils";
 
@@ -36,7 +42,10 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 				data-slot="number-field-input"
 				class="border-input h-8 w-16 rounded-md border bg-transparent px-2 text-center text-sm shadow-xs outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50"
 			/>
-			<span v-if="suffix" class="pointer-events-none absolute right-2 text-xs text-muted-foreground">
+			<span
+				v-if="suffix"
+				class="pointer-events-none absolute right-2 text-xs text-muted-foreground"
+			>
 				{{ suffix }}
 			</span>
 		</div>

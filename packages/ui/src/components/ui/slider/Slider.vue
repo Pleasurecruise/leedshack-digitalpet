@@ -5,12 +5,9 @@ import { reactiveOmit } from "@vueuse/core";
 import { SliderRange, SliderRoot, SliderThumb, SliderTrack, useForwardPropsEmits } from "reka-ui";
 import { cn } from "@my-monorepo/ui/lib/utils";
 
-const props = withDefaults(
-	defineProps<SliderRootProps & { class?: HTMLAttributes["class"] }>(),
-	{
-		orientation: "horizontal",
-	},
-);
+const props = withDefaults(defineProps<SliderRootProps & { class?: HTMLAttributes["class"] }>(), {
+	orientation: "horizontal",
+});
 const emits = defineEmits<SliderRootEmits>();
 
 const delegatedProps = reactiveOmit(props, "class");

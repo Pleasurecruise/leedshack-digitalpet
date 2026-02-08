@@ -206,11 +206,7 @@ async function handleOk() {
 					{{ $t("components.updateApp.buttons.updateLater") }}
 				</Button>
 				<Button @click="handleOk">
-					{{
-						state.downloading
-							? downloadProgress
-							: $t("components.updateApp.buttons.updateNow")
-					}}
+					{{ state.downloading ? downloadProgress : $t("components.updateApp.buttons.updateNow") }}
 				</Button>
 			</DialogFooter>
 		</DialogContent>

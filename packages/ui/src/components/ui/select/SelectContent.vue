@@ -2,12 +2,7 @@
 import type { SelectContentEmits, SelectContentProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 import { reactiveOmit } from "@vueuse/core";
-import {
-	SelectContent,
-	SelectPortal,
-	SelectViewport,
-	useForwardPropsEmits,
-} from "reka-ui";
+import { SelectContent, SelectPortal, SelectViewport, useForwardPropsEmits } from "reka-ui";
 import { cn } from "@my-monorepo/ui/lib/utils";
 import SelectScrollDownButton from "./SelectScrollDownButton.vue";
 import SelectScrollUpButton from "./SelectScrollUpButton.vue";
@@ -46,7 +41,13 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 			<SelectScrollUpButton />
 			<SelectViewport
 				data-slot="select-viewport"
-				:class="cn('p-1', position === 'popper' && 'h-[var(--reka-select-trigger-height)] w-full min-w-[var(--reka-select-trigger-width)]')"
+				:class="
+					cn(
+						'p-1',
+						position === 'popper' &&
+							'h-[var(--reka-select-trigger-height)] w-full min-w-[var(--reka-select-trigger-width)]',
+					)
+				"
 			>
 				<slot />
 			</SelectViewport>

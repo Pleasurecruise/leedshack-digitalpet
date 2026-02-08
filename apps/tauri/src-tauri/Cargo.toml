@@ -31,11 +31,7 @@ tauri-plugin-updater = "2"
 tauri-plugin-prevent-default = "1"
 tauri-plugin-single-instance = "2"
 tauri-plugin-autostart = "2"
-tauri-plugin-dialog = "2"
 tauri-plugin-fs = "2"
-fs_extra = "1"
-tauri-plugin-clipboard-manager = "2"
-tauri-plugin-global-shortcut = "2"
 tauri-plugin-locale = "2"
 rdev = { git = "https://github.com/kunkunsh/rdev" }
 gilrs = { git = "https://github.com/ayangweb/gilrs", default-features = false, features = [

@@ -1,5 +1,4 @@
 mod core;
-mod utils;
 
 use core::{
     device::start_device_listening,
@@ -10,7 +9,6 @@ use tauri::{Manager, WindowEvent, generate_handler};
 use tauri_plugin_custom_window::{
     MAIN_WINDOW_LABEL, PREFERENCE_WINDOW_LABEL, show_preference_window,
 };
-use utils::fs_extra::copy_dir;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
@@ -27,7 +25,6 @@ pub fn run() {
             Ok(())
         })
         .invoke_handler(generate_handler![
-            copy_dir,
             start_device_listening,
             start_gamepad_listing,
             stop_gamepad_listing
@@ -51,10 +48,7 @@ pub fn run() {
                 .build(),
         )
         .plugin(tauri_plugin_autostart::Builder::new().build())
-        .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_fs::init())
-        .plugin(tauri_plugin_clipboard_manager::init())
-        .plugin(tauri_plugin_global_shortcut::Builder::new().build())
         .plugin(tauri_plugin_locale::init())
         .on_window_event(|window, event| match event {
             WindowEvent::CloseRequested { api, .. } => {

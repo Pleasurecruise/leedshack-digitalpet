@@ -18,13 +18,11 @@ import { useAppStore } from "./stores/app";
 import { useCatStore } from "./stores/cat";
 import { useGeneralStore } from "./stores/general";
 import { useModelStore } from "./stores/model";
-import { useShortcutStore } from "./stores/shortcut.ts";
 
 const appStore = useAppStore();
 const modelStore = useModelStore();
 const catStore = useCatStore();
 const generalStore = useGeneralStore();
-const shortcutStore = useShortcutStore();
 const appWindow = getCurrentWebviewWindow();
 const { isRestored, restoreState } = useWindowState();
 
@@ -38,7 +36,6 @@ onMounted(async () => {
 	await catStore.$tauri.start();
 	await generalStore.$tauri.start();
 	await generalStore.init();
-	await shortcutStore.$tauri.start();
 	await restoreState();
 });
 

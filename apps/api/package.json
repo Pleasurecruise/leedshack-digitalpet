@@ -32,6 +32,7 @@
 	"devDependencies": {
 		"@my-monorepo/tsconfig": "*",
 		"@types/node": "latest",
-		"tsc-alias": "latest"
+		"tsc-alias": "latest",
+		"vite-tsconfig-paths": "latest"
 	}
 }

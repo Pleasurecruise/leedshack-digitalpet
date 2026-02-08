@@ -15,8 +15,8 @@ export async function setLocale(language: Language) {
 }
 
 export function t(key: TranslationKey) {
-	locale.value;
-	return baseT(key);
+	// Touch locale so callers react to language changes.
+	return (locale.value, baseT(key));
 }
 
 export const i18n: Plugin = {

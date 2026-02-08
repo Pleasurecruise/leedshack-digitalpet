@@ -16,8 +16,8 @@
 		"lint:fix": "oxlint --fix .",
 		"format": "oxfmt",
 		"format:check": "oxfmt --check",
-		"test": "vitest run",
-		"test:coverage": "vitest run --coverage"
+		"test": "vitest run --passWithNoTests",
+		"test:coverage": "vitest run --coverage --passWithNoTests"
 	},
 	"dependencies": {
 		"@my-monorepo/i18n": "*",
@@ -35,7 +35,7 @@
 		"@tauri-apps/plugin-process": "latest",
 		"@tauri-apps/plugin-updater": "latest",
 		"@tauri-store/pinia": "latest",
-		"@vueuse/core": "^13.3.0",
+		"@vueuse/core": "^14.2.0",
 		"es-toolkit": "^1.38.0",
 		"is-url": "^1.2.4",
 		"nanoid": "^5.1.5",

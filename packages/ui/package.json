@@ -29,8 +29,8 @@
 		"format": "oxfmt",
 		"format:check": "oxfmt --check",
 		"check-types": "tsc --noEmit",
-		"test": "vitest run",
-		"test:coverage": "vitest run --coverage"
+		"test": "vitest run --passWithNoTests",
+		"test:coverage": "vitest run --coverage --passWithNoTests"
 	},
 	"dependencies": {
 		"@vueuse/core": "^14.2.0",
@@ -41,10 +41,8 @@
 		"tailwind-merge": "^3.0.0",
 		"vue-sonner": "^2.0.9"
 	},
-	"peerDependencies": {
-		"vue": "^3.5.0"
-	},
 	"devDependencies": {
-		"@my-monorepo/tsconfig": "*"
+		"@my-monorepo/tsconfig": "*",
+		"vue": "^3.5.0"
 	}
 }
