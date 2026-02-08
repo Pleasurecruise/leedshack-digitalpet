@@ -15,30 +15,11 @@ export interface Model {
 	isPreset: boolean;
 }
 
-interface Motion {
-	Name: string;
-	File: string;
-	Sound?: string;
-	FadeInTime: number;
-	FadeOutTime: number;
-	Description?: string;
-}
-
-type MotionGroup = Record<string, Motion[]>;
-
-interface Expression {
-	Name: string;
-	File: string;
-	Description?: string;
-}
-
 export const useModelStore = defineStore(
 	"model",
 	() => {
 		const models = ref<Model[]>([]);
 		const currentModel = ref<Model>();
-		const motions = ref<MotionGroup>({});
-		const expressions = ref<Expression[]>([]);
 		const supportKeys = reactive<Record<string, string>>({});
 		const pressedKeys = reactive<Record<string, string>>({});
 
@@ -71,8 +52,6 @@ export const useModelStore = defineStore(
 		return {
 			models,
 			currentModel,
-			motions,
-			expressions,
 			supportKeys,
 			pressedKeys,
 			init,

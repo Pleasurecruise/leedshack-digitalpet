@@ -25,7 +25,6 @@ export const usePetStore = defineStore("pet", () => {
 	const visible = ref(false);
 	const inputVisible = ref(false);
 	const loading = ref(false);
-	const lastError = ref<string | null>(null);
 	const lastKeyAt = ref(Date.now());
 	const focusStartedAt = ref(Date.now());
 	const idleSince = ref<number | null>(null);
@@ -73,10 +72,6 @@ export const usePetStore = defineStore("pet", () => {
 		hideTimer = setTimeout(() => {
 			visible.value = false;
 		}, durationMs);
-	};
-
-	const setLoading = (value: boolean) => {
-		loading.value = value;
 	};
 
 	const setInputVisible = (value: boolean) => {
@@ -127,16 +122,13 @@ export const usePetStore = defineStore("pet", () => {
 		if (loading.value) return;
 
 		loading.value = true;
-		lastError.value = null;
-
 		const language = generalStore.appearance.language ?? "en";
 		const metrics = getMetricsSnapshot();
 
 		try {
 			const text = await fetchPetMessage({ reason, language, metrics });
 			showMessage(text || getFallbackMessage(reason, language, metrics));
-		} catch (error) {
-			lastError.value = error instanceof Error ? error.message : String(error);
+		} catch {
 			showMessage(getFallbackMessage(reason, language, metrics));
 		} finally {
 			loading.value = false;
@@ -149,8 +141,6 @@ export const usePetStore = defineStore("pet", () => {
 		if (!trimmed || loading.value) return;
 
 		loading.value = true;
-		lastError.value = null;
-
 		const language = generalStore.appearance.language ?? "en";
 
 		showMessage("", 20_000);
@@ -158,8 +148,7 @@ export const usePetStore = defineStore("pet", () => {
 		try {
 			const text = await fetchPetChat({ message: trimmed, language });
 			showMessage(text || getChatFallback(language));
-		} catch (error) {
-			lastError.value = error instanceof Error ? error.message : String(error);
+		} catch {
 			showMessage(getChatFallback(language));
 		} finally {
 			loading.value = false;
@@ -230,13 +219,8 @@ export const usePetStore = defineStore("pet", () => {
 		visible,
 		inputVisible,
 		loading,
-		lastError,
-		typingSpeedKpm,
 		recordKeyPress,
-		triggerMessage,
 		sendChatMessage,
-		showMessage,
-		setLoading,
 		setInputVisible,
 		start,
 		stop,

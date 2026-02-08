@@ -34,13 +34,12 @@ export function useModel() {
 
 			await resolveResource(path);
 
-			const { width, height, ...rest } = await live2d.load(path);
+			const { width, height } = await live2d.load(path);
 
 			modelSize.value = { width, height };
 
 			handleResize();
 
-			Object.assign(modelStore, rest);
 		} catch (error) {
 			toast.error(String(error));
 		}
