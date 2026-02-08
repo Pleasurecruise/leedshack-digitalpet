@@ -8,7 +8,6 @@
   - `tsconfig/`: shared TS configs (`base`, `hono`).
   - `utils/`: cross-app helpers for crypto/formatting/validation, plus shared libs (zod, validator, date-fns, etc.).
   - `i18n/`: i18next setup and locale exports.
-  - `theme/`: theme helpers for light/dark/system.
   - `logger/`: pino-based logger with context helpers.
 - `docs/README.md` documents the dependency graph and how apps consume shared packages.
 
@@ -28,7 +27,7 @@
 
 ## Testing Guidelines
 - Tests use Vitest and typically live alongside code as `*.test.ts` (for example, `apps/web/src/app.test.ts`).
-- Prefer focused unit tests for shared packages; app tests can cover integration of `api`, `i18n`, and `theme`.
+- Prefer focused unit tests for shared packages; app tests can cover integration of `api` and `i18n`.
 - Use `bun run test` for full runs or `vitest run` inside a package for targeted runs.
 
 ## Commit & Pull Request Guidelines
