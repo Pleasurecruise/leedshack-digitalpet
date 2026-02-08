@@ -26,4 +26,8 @@ way.
 ## Judging Criteria
 
 Tech for good: solve a problem, benefit mental health, inform, enrich or teach
-Playful: whimsy, entertaining, creative interpretation 
+Playful: whimsy, entertaining, creative interpretation
+
+## References
+
+https://github.com/ayangweb/BongoCat

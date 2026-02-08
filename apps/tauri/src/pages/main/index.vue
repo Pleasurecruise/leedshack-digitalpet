@@ -10,6 +10,7 @@ import { round } from "es-toolkit";
 import { nth } from "es-toolkit/compat";
 import { onMounted, onUnmounted, ref, watch } from "vue";
 
+import PetChatInput from "@/components/pet-chat-input/index.vue";
 import PetSpeech from "@/components/pet-speech/index.vue";
 import { useDevice } from "@/composables/useDevice";
 import { useGamepad } from "@/composables/useGamepad";
@@ -180,6 +181,10 @@ function handleMouseMove(event: MouseEvent) {
 
 	catStore.window.scale = round(nextScale);
 }
+
+function handlePetHover(value: boolean) {
+	petStore.setInputVisible(value);
+}
 </script>
 
 <template>
@@ -194,10 +199,13 @@ function handleMouseMove(event: MouseEvent) {
 		@contextmenu="handleContextmenu"
 		@mousedown="handleMouseDown"
 		@mousemove="handleMouseMove"
+		@mouseenter="handlePetHover(true)"
+		@mouseleave="handlePetHover(false)"
 	>
 		<img v-if="backgroundImagePath" class="object-cover" :src="backgroundImagePath" />
 
 		<PetSpeech />
+		<PetChatInput />
 
 		<canvas id="live2dCanvas" />
 

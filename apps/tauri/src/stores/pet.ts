@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
 
-import { fetchPetMessage, type PetMessageReason } from "@/services/pet";
+import { fetchPetChat, fetchPetMessage, type PetMessageReason } from "@/services/pet";
 import { useGeneralStore } from "@/stores/general";
 import { useFocusStore } from "@/stores/focus";
 
@@ -23,6 +23,7 @@ export const usePetStore = defineStore("pet", () => {
 	const focusStore = useFocusStore();
 	const message = ref("");
 	const visible = ref(false);
+	const inputVisible = ref(false);
 	const loading = ref(false);
 	const lastError = ref<string | null>(null);
 	const lastKeyAt = ref(Date.now());
@@ -78,6 +79,10 @@ export const usePetStore = defineStore("pet", () => {
 		loading.value = value;
 	};
 
+	const setInputVisible = (value: boolean) => {
+		inputVisible.value = value;
+	};
+
 	const getFallbackMessage = (
 		reason: PetMessageReason,
 		language: "zh" | "en",
@@ -110,6 +115,14 @@ export const usePetStore = defineStore("pet", () => {
 		return `你停下来 ${idleSeconds} 秒左右啦，已经专注 ${focusMinutes} 分钟，要不要休息一下？`;
 	};
 
+	const getChatFallback = (language: "zh" | "en") => {
+		if (language === "en") {
+			return "Hmm... can you try asking in a different way?";
+		}
+
+		return "唔...可以换个说法再问问吗？";
+	};
+
 	const triggerMessage = async (reason: PetMessageReason) => {
 		if (loading.value) return;
 
@@ -125,6 +138,29 @@ export const usePetStore = defineStore("pet", () => {
 		} catch (error) {
 			lastError.value = error instanceof Error ? error.message : String(error);
 			showMessage(getFallbackMessage(reason, language, metrics));
+		} finally {
+			loading.value = false;
+		}
+	};
+
+	const sendChatMessage = async (content: string) => {
+		const trimmed = content.trim();
+
+		if (!trimmed || loading.value) return;
+
+		loading.value = true;
+		lastError.value = null;
+
+		const language = generalStore.appearance.language ?? "en";
+
+		showMessage("", 20_000);
+
+		try {
+			const text = await fetchPetChat({ message: trimmed, language });
+			showMessage(text || getChatFallback(language));
+		} catch (error) {
+			lastError.value = error instanceof Error ? error.message : String(error);
+			showMessage(getChatFallback(language));
 		} finally {
 			loading.value = false;
 		}
@@ -192,13 +228,16 @@ export const usePetStore = defineStore("pet", () => {
 	return {
 		message,
 		visible,
+		inputVisible,
 		loading,
 		lastError,
 		typingSpeedKpm,
 		recordKeyPress,
 		triggerMessage,
+		sendChatMessage,
 		showMessage,
 		setLoading,
+		setInputVisible,
 		start,
 		stop,
 	};

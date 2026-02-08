@@ -44,6 +44,11 @@ const petRequestSchema = z.object({
 		.optional(),
 });
 
+const petChatRequestSchema = z.object({
+	message: z.string().trim().min(1).max(500),
+	language: z.enum(["zh", "en"]).default("zh"),
+});
+
 app.post("/pet", async (c) => {
 	if (!isAiConfigured()) {
 		return c.json({ message: "AI not configured" }, 500);
@@ -84,6 +89,47 @@ app.post("/pet", async (c) => {
 			{ role: "user", content: user },
 		],
 		maxOutputTokens: 120,
+		temperature: 0.7,
+	});
+
+	let text = "";
+
+	for await (const chunk of result.textStream) {
+		text += chunk;
+	}
+
+	return c.json({ text: text.trim() });
+});
+
+app.post("/pet/chat", async (c) => {
+	if (!isAiConfigured()) {
+		return c.json({ message: "AI not configured" }, 500);
+	}
+
+	const payload = petChatRequestSchema.safeParse(await c.req.json().catch(() => ({})));
+
+	if (!payload.success) {
+		return c.json({ message: "Invalid payload" }, 400);
+	}
+
+	const { message, language } = payload.data;
+	const locale = language === "en" ? "English" : "Simplified Chinese";
+
+	const system = [
+		"You are a friendly desktop pet that supports learning and productivity.",
+		`Reply in ${locale}.`,
+		"Keep it playful, warm, and supportive.",
+		"Use at most two short sentences.",
+		"Do not mention being an AI or model.",
+		"If asked for medical, legal, or financial advice, suggest seeking professional help.",
+	].join(" ");
+
+	const result = streamChat({
+		messages: [
+			{ role: "system", content: system },
+			{ role: "user", content: message },
+		],
+		maxOutputTokens: 180,
 		temperature: 0.7,
 	});
 
