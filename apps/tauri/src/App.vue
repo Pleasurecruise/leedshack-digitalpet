@@ -16,6 +16,7 @@ import { setLocale } from "@/core/locales";
 import { hideWindow, showWindow } from "@/core/window";
 import { useAppStore } from "./stores/app";
 import { useCatStore } from "./stores/cat";
+import { useFocusStore } from "./stores/focus";
 import { useGeneralStore } from "./stores/general";
 import { useModelStore } from "./stores/model";
 
@@ -23,6 +24,7 @@ const appStore = useAppStore();
 const modelStore = useModelStore();
 const catStore = useCatStore();
 const generalStore = useGeneralStore();
+const focusStore = useFocusStore();
 const appWindow = getCurrentWebviewWindow();
 const { isRestored, restoreState } = useWindowState();
 
@@ -34,6 +36,7 @@ onMounted(async () => {
 	await modelStore.init();
 	await catStore.$tauri.start();
 	await generalStore.$tauri.start();
+	await focusStore.$tauri.start();
 	await generalStore.init();
 	await restoreState();
 });
