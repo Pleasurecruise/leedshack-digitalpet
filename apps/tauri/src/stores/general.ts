@@ -4,7 +4,7 @@ import { defineStore } from "pinia";
 import { getLocale } from "tauri-plugin-locale-api";
 import { reactive } from "vue";
 
-import { LANGUAGE } from "@/constants";
+import { LANGUAGE } from "@/core/constants";
 
 export type Language = (typeof LANGUAGE)[keyof typeof LANGUAGE];
 

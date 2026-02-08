@@ -17,7 +17,7 @@ import { useGamepad } from "@/composables/useGamepad";
 import { useModel } from "@/composables/useModel";
 import { useSharedMenu } from "@/composables/useSharedMenu";
 import { useWindowPosition } from "@/composables/useWindowPosition";
-import { hideWindow, setAlwaysOnTop, setTaskbarVisibility, showWindow } from "@/plugins/window";
+import { hideWindow, setAlwaysOnTop, setTaskbarVisibility, showWindow } from "@/core/window";
 import { useCatStore } from "@/stores/cat";
 import { useGeneralStore } from "@/stores/general.ts";
 import { useModelStore } from "@/stores/model";

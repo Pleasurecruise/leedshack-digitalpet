@@ -10,12 +10,12 @@ import { exit, relaunch } from "@tauri-apps/plugin-process";
 import { watchDebounced } from "@vueuse/core";
 import { watch } from "vue";
 
-import { GITHUB_LINK, LISTEN_KEY } from "../constants";
-import { showWindow } from "../plugins/window";
+import { GITHUB_LINK, LISTEN_KEY } from "@/core/constants";
+import { showWindow } from "@/core/window";
 
 import { useSharedMenu } from "./useSharedMenu";
 
-import { t } from "@/locales";
+import { t } from "@/core/locales";
 import { useCatStore } from "@/stores/cat";
 import { useGeneralStore } from "@/stores/general";
 

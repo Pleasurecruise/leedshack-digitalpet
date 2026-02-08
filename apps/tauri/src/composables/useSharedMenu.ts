@@ -1,8 +1,8 @@
 import { CheckMenuItem, MenuItem, PredefinedMenuItem, Submenu } from "@tauri-apps/api/menu";
 import { range } from "es-toolkit";
 
-import { t } from "@/locales";
-import { showWindow } from "@/plugins/window";
+import { t } from "@/core/locales";
+import { showWindow } from "@/core/window";
 import { useCatStore } from "@/stores/cat";
 import { isMac } from "@/utils/platform";
 

@@ -11,9 +11,9 @@ import { RouterView } from "vue-router";
 
 import { useTauriListen } from "./composables/useTauriListen";
 import { useWindowState } from "./composables/useWindowState";
-import { LANGUAGE, LISTEN_KEY } from "./constants";
-import { setLocale } from "@/locales";
-import { hideWindow, showWindow } from "./plugins/window";
+import { LANGUAGE, LISTEN_KEY } from "@/core/constants";
+import { setLocale } from "@/core/locales";
+import { hideWindow, showWindow } from "@/core/window";
 import { useAppStore } from "./stores/app";
 import { useCatStore } from "./stores/cat";
 import { useGeneralStore } from "./stores/general";

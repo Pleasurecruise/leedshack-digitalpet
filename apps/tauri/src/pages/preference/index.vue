@@ -6,7 +6,7 @@ import General from "./components/general/index.vue";
 
 import UpdateApp from "@/components/update-app/index.vue";
 import { useTray } from "@/composables/useTray";
-import { t } from "@/locales";
+import { t } from "@/core/locales";
 import { useGeneralStore } from "@/stores/general";
 import { isMac } from "@/utils/platform";
 

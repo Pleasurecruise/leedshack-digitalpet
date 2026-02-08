@@ -39,7 +39,6 @@ export function useModel() {
 			modelSize.value = { width, height };
 
 			handleResize();
-
 		} catch (error) {
 			toast.error(String(error));
 		}

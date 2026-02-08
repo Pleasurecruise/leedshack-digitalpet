@@ -19,9 +19,9 @@ import { computed, reactive, watch } from "vue";
 import VueMarkdown from "vue-markdown-render";
 
 import { useTauriListen } from "@/composables/useTauriListen";
-import { GITHUB_LINK, LISTEN_KEY, UPGRADE_LINK_ACCESS_KEY } from "@/constants";
-import { t } from "@/locales";
-import { showWindow } from "@/plugins/window";
+import { GITHUB_LINK, LISTEN_KEY, UPGRADE_LINK_ACCESS_KEY } from "@/core/constants";
+import { t } from "@/core/locales";
+import { showWindow } from "@/core/window";
 import { useGeneralStore } from "@/stores/general";
 
 interface State {

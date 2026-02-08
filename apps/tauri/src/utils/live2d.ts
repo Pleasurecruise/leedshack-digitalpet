@@ -8,7 +8,7 @@ import { PIXI } from "./pixi-setup";
 
 import { join } from "./path";
 
-import { t } from "@/locales";
+import { t } from "@/core/locales";
 
 const { Application, Ticker } = PIXI;
 

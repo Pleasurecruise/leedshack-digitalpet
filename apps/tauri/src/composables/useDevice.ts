@@ -2,7 +2,7 @@ import { invoke } from "@tauri-apps/api/core";
 import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow";
 import { cursorPosition } from "@tauri-apps/api/window";
 
-import { INVOKE_KEY, LISTEN_KEY } from "../constants";
+import { INVOKE_KEY, LISTEN_KEY } from "@/core/constants";
 
 import { useModel } from "./useModel";
 import { useTauriListen } from "./useTauriListen";

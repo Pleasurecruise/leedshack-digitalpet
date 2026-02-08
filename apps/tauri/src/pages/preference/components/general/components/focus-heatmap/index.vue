@@ -3,7 +3,7 @@ import { computed, unref } from "vue";
 
 import { dateFns } from "@my-monorepo/utils";
 
-import { t } from "@/locales";
+import { t } from "@/core/locales";
 import { useFocusStore } from "@/stores/focus";
 import { useGeneralStore } from "@/stores/general";
 

@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
 
-import { fetchPetChat, fetchPetMessage, type PetMessageReason } from "@/services/pet";
+import { fetchPetChat, fetchPetMessage, type PetMessageReason } from "@/core/pet";
 import { useGeneralStore } from "@/stores/general";
 import { useFocusStore } from "@/stores/focus";
 

@@ -6,8 +6,8 @@ import { createPinia } from "pinia";
 import { createApp } from "vue";
 
 import App from "./App.vue";
-import { i18n } from "./locales";
-import router from "./router";
+import { i18n } from "@/core/locales";
+import router from "@/core/router";
 
 import "virtual:uno.css";
 import "@my-monorepo/ui/styles/globals.css";
