@@ -9,6 +9,7 @@ import { useTauriListen } from "./useTauriListen";
 
 import { useCatStore } from "@/stores/cat";
 import { useModelStore } from "@/stores/model";
+import { usePetStore } from "@/stores/pet";
 import { inBetween } from "@/utils/is";
 import { isWindows } from "@/utils/platform";
 
@@ -38,6 +39,7 @@ export function useDevice() {
 	const modelStore = useModelStore();
 	const releaseTimers = new Map<string, NodeJS.Timeout>();
 	const catStore = useCatStore();
+	const petStore = usePetStore();
 	const { handlePress, handleRelease, handleMouseChange, handleMouseMove } = useModel();
 
 	const startListening = () => {
@@ -114,6 +116,8 @@ export function useDevice() {
 			}
 
 			if (kind === "KeyboardPress") {
+				petStore.recordKeyPress();
+
 				if (isWindows) {
 					const delay = catStore.model.autoReleaseDelay * 1000;
 

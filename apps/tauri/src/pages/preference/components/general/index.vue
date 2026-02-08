@@ -7,6 +7,7 @@ import { Slider } from "@my-monorepo/ui/slider";
 import { computed, watch } from "vue";
 
 import ThemeMode from "./components/theme-mode/index.vue";
+import FocusHeatmap from "./components/focus-heatmap/index.vue";
 
 import ProList from "@/components/pro-list/index.vue";
 import ProListItem from "@/components/pro-list-item/index.vue";
@@ -41,6 +42,16 @@ watch(
 </script>
 
 <template>
+	<ProList :title="$t('pages.preference.focus.labels.sectionTitle')">
+		<ProListItem
+			:title="$t('pages.preference.focus.labels.heatmapTitle')"
+			:description="$t('pages.preference.focus.hints.heatmapDescription')"
+			vertical
+		>
+			<FocusHeatmap />
+		</ProListItem>
+	</ProList>
+
 	<ProList :title="$t('pages.preference.general.labels.appSettings')">
 		<ProListItem :title="$t('pages.preference.general.labels.launchOnStartup')">
 			<Switch v-model:checked="generalStore.app.autostart" />

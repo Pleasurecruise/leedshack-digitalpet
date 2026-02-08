@@ -10,6 +10,7 @@ import { round } from "es-toolkit";
 import { nth } from "es-toolkit/compat";
 import { onMounted, onUnmounted, ref, watch } from "vue";
 
+import PetSpeech from "@/components/pet-speech/index.vue";
 import { useDevice } from "@/composables/useDevice";
 import { useGamepad } from "@/composables/useGamepad";
 import { useModel } from "@/composables/useModel";
@@ -19,6 +20,7 @@ import { hideWindow, setAlwaysOnTop, setTaskbarVisibility, showWindow } from "@/
 import { useCatStore } from "@/stores/cat";
 import { useGeneralStore } from "@/stores/general.ts";
 import { useModelStore } from "@/stores/model";
+import { usePetStore } from "@/stores/pet";
 import { isImage } from "@/utils/is";
 import { join } from "@/utils/path";
 import { clearObject } from "@/utils/shared";
@@ -30,14 +32,21 @@ const catStore = useCatStore();
 const { getSharedMenu } = useSharedMenu();
 const modelStore = useModelStore();
 const generalStore = useGeneralStore();
+const petStore = usePetStore();
 const resizing = ref(false);
 const backgroundImagePath = ref<string>();
 const { stickActive } = useGamepad();
 const { isMounted, setWindowPosition } = useWindowPosition();
 
-onMounted(startListening);
+onMounted(() => {
+	startListening();
+	petStore.start();
+});
 
-onUnmounted(handleDestroy);
+onUnmounted(() => {
+	handleDestroy();
+	petStore.stop();
+});
 
 const debouncedResize = useDebounceFn(async () => {
 	await handleResize();
@@ -187,6 +196,8 @@ function handleMouseMove(event: MouseEvent) {
 		@mousemove="handleMouseMove"
 	>
 		<img v-if="backgroundImagePath" class="object-cover" :src="backgroundImagePath" />
+
+		<PetSpeech />
 
 		<canvas id="live2dCanvas" />
 

@@ -56,6 +56,24 @@ export default {
 					openLater: "Open Later",
 				},
 			},
+			focus: {
+				labels: {
+					sectionTitle: "Focus Insights",
+					heatmapTitle: "Daily Focus Heatmap",
+					today: "Today",
+					thisWeek: "This Week",
+					streak: "Streak",
+					total: "Total",
+					minutes: "min",
+					days: "days",
+					less: "Less",
+					more: "More",
+				},
+				hints: {
+					heatmapDescription: "Counts focused minutes each day from keyboard activity.",
+					noFocus: "No focus",
+				},
+			},
 		},
 	},
 	components: {

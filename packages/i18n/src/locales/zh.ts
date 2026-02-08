@@ -56,6 +56,24 @@ export default {
 					openLater: "稍后开启",
 				},
 			},
+			focus: {
+				labels: {
+					sectionTitle: "专注洞察",
+					heatmapTitle: "每日专注热力图",
+					today: "今日",
+					thisWeek: "本周",
+					streak: "连续",
+					total: "累计",
+					minutes: "分钟",
+					days: "天",
+					less: "少",
+					more: "多",
+				},
+				hints: {
+					heatmapDescription: "根据键盘活动统计每日专注分钟数。",
+					noFocus: "暂无专注",
+				},
+			},
 		},
 	},
 	components: {

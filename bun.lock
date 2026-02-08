@@ -130,14 +130,6 @@
         "@my-monorepo/tsconfig": "*",
       },
     },
-    "packages/theme": {
-      "name": "@my-monorepo/theme",
-      "version": "1.0.0",
-      "devDependencies": {
-        "@my-monorepo/tsconfig": "*",
-        "@tauri-apps/api": "latest",
-      },
-    },
     "packages/tsconfig": {
       "name": "@my-monorepo/tsconfig",
       "version": "1.0.0",
@@ -349,8 +341,6 @@
     "@my-monorepo/memory": ["@my-monorepo/memory@workspace:packages/memory"],
 
     "@my-monorepo/tauri": ["@my-monorepo/tauri@workspace:apps/tauri"],
-
-    "@my-monorepo/theme": ["@my-monorepo/theme@workspace:packages/theme"],
 
     "@my-monorepo/tsconfig": ["@my-monorepo/tsconfig@workspace:packages/tsconfig"],
 
